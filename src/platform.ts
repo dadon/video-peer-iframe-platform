@@ -4,9 +4,22 @@ import { AppEvents, PlatformEvents } from "./events";
 
 
 class Platform extends EventEmitter {
-    init(appId: string) {
+    init() {
         window.addEventListener("message", this.onMessage.bind(this));
-        window.parent.postMessage({ from: appId, messageType: AppEvents.APP_READY }, "*");
+        this.sendMessage(AppEvents.APP_READY);
+    }
+
+    sendMessage(type: AppEvents | PlatformEvents, data?: any) {
+        const message: any = {
+            from: "platformApp",
+            messageType: type,
+        };
+
+        if (data) {
+            message.data = data;
+        }
+
+        window.parent.postMessage(message, "*");
     }
 
     private onMessage(event: MessageEvent) {
