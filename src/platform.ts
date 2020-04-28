@@ -2,11 +2,15 @@ import { EventEmitter } from "events";
 
 import { AppEvents, PlatformEvents } from "./events";
 
+interface AppOptions {
+    width: number;
+    height: number;
+}
 
 class Platform extends EventEmitter {
-    init() {
+    init(options?: AppOptions) {
         window.addEventListener("message", this.onMessage.bind(this));
-        this.sendMessage(AppEvents.APP_READY);
+        this.sendMessage(AppEvents.APP_READY, options);
     }
 
     sendMessage(type: AppEvents | PlatformEvents, data?: any) {
