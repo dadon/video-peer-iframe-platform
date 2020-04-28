@@ -16,7 +16,8 @@ module.exports = {
     },
     output: {
         filename: "platform.js",
-        library: ["platform"],
         path: path.resolve(__dirname, "build"),
+        library: "platform",
+        libraryTarget: "umd",
     },
 };
