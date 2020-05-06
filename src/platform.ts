@@ -3,8 +3,9 @@ import { EventEmitter } from "events";
 import { AppEvents, PlatformEvents } from "./events";
 
 interface AppOptions {
-    width: number;
-    height: number;
+    width?: number;
+    height?: number;
+    needJoin?: boolean;
 }
 
 class Platform extends EventEmitter {
