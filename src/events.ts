@@ -3,6 +3,7 @@ export enum PlatformEvents {
     UPDATE_USERS_STATE = "UPDATE_USERS_STATE",
     USER_JOIN = "USER_JOIN",
     USER_LEFT = "USER_LEFT",
+    APP_MOVE = "APP_MOVE",
 }
 
 export enum AppEvents {
