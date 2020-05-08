@@ -6,6 +6,7 @@ interface AppOptions {
     width?: number;
     height?: number;
     needJoin?: boolean;
+    waitForCreation?: boolean;
 }
 
 class Platform extends EventEmitter {

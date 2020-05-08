@@ -8,6 +8,7 @@ export enum PlatformEvents {
 
 export enum AppEvents {
     APP_READY = "APP_READY",
+    APP_CREATED = "APP_CREATED",
     SET_USER_STATE = "SET_USER_STATE",
     UPDATE_AVATAR = "UPDATE_AVATAR",
 }
