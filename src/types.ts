@@ -3,6 +3,7 @@ export interface User {
     color: string;
     name?: string;
 }
+
 export interface AppInitEvent {
     user: User;
     roomId: string;

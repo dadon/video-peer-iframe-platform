@@ -8,8 +8,25 @@ export enum PlatformEvents {
 
 export enum AppEvents {
     APP_READY = "APP_READY",
+    PROXY_EVENT = "PROXY_EVENT",
     APP_CREATED = "APP_CREATED",
     SET_USER_STATE = "SET_USER_STATE",
     UPDATE_AVATAR = "UPDATE_AVATAR",
     UPDATE_SIZE = "UPDATE_SIZE",
+}
+
+export class ProxyEvent {
+    constructor(private readonly target: Window | Node,
+                private readonly eventType: string,
+                private readonly handler: (event: any) => void) {
+        target.addEventListener(eventType, this._handler);
+    }
+
+    destroy = () => {
+        this.target.removeEventListener(this.eventType, this._handler);
+    }
+
+    _handler = (event: any) => {
+        this.handler(event);
+    }
 }
