@@ -7,6 +7,6 @@ export interface AppInitEvent {
     user: User;
     roomId: string;
     appId: string;
-    joined: boolean;
+    userJoined: boolean;
     sessionData: any;
 }
