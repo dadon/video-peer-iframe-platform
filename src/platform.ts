@@ -18,6 +18,7 @@ class Platform extends EventEmitter {
         window.addEventListener("message", this.onMessage);
 
         if (!options.disableProxyEvents) {
+            this.proxyEvents = [];
             this.createProxyEventHandler(window, "wheel");
             this.createProxyEventHandler(document, "mousedown");
             this.createProxyEventHandler(document, "mouseup");
