@@ -19,10 +19,7 @@ class Platform extends EventEmitter {
 
         if (!options.disableProxyEvents) {
             this.proxyEvents = [];
-            this.createProxyEventHandler(window, "wheel");
-            this.createProxyEventHandler(document, "mousedown");
-            this.createProxyEventHandler(document, "mouseup");
-            this.createProxyEventHandler(document, "mousemove");
+            this.createProxyEventHandler(window, "wheel", ["deltaY"]);
         }
 
         this.sendMessage(AppEvents.APP_READY, options);
@@ -69,11 +66,15 @@ class Platform extends EventEmitter {
         this.emit(messageType, data);
     };
 
-    private createProxyEventHandler = (target: Window | Node, type: string) => {
+    private createProxyEventHandler = (target: Window | Node, type: string, attributesToCopy: string[]) => {
         this.proxyEvents.push(new ProxyEvent(target, type, (event: any) => {
+            const payload: any = {};
+            for (let attr of attributesToCopy) {
+                payload[attr] = event[attr];
+            }
             this.sendMessage(AppEvents.PROXY_EVENT, {
                 type,
-                event,
+                payload,
             });
         }));
     };
