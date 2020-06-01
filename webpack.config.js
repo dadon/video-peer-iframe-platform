@@ -15,7 +15,7 @@ module.exports = {
         extensions: [".ts", ".js"],
     },
     output: {
-        filename: "platform.js",
+        filename: "index.js",
         path: path.resolve(__dirname, "build"),
         library: "platform",
         libraryTarget: "umd",
