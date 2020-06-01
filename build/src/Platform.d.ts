@@ -1,5 +1,5 @@
 /// <reference types="node" />
-import { EventEmitter } from "./events";
+import { EventEmitter } from "events";
 import { AppEvents, PlatformEvents, ProxyEvent } from "./events";
 interface AppOptions {
     width?: number;
