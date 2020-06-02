@@ -3,9 +3,12 @@
     "outDir": "./build/",
     "declaration": true,
     "noImplicitAny": true,
-    "module": "es6",
-    "target": "es5",
+    "module": "umd",
+    "target": "es2015",
     "allowJs": true,
     "allowSyntheticDefaultImports": true
-  }
+  },
+  "include": [
+    "src/**/*"
+  ]
 }
