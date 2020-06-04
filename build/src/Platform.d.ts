@@ -7,6 +7,7 @@ interface AppOptions {
     needJoin?: boolean;
     waitForCreation?: boolean;
     disableProxyEvents?: boolean;
+    helpUrl?: string;
 }
 declare class Platform extends EventEmitter {
     proxyEvents: ProxyEvent[];

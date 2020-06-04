@@ -9,6 +9,7 @@ interface AppOptions {
     needJoin?: boolean;
     waitForCreation?: boolean;
     disableProxyEvents?: boolean;
+    helpUrl?: string;
 }
 
 class Platform extends EventEmitter {
