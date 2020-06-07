@@ -10,6 +10,7 @@ interface AppOptions {
     waitForCreation?: boolean;
     disableProxyEvents?: boolean;
     helpUrl?: string;
+    resizable?: boolean;
 }
 
 class Platform extends EventEmitter {

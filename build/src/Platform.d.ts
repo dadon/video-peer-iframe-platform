@@ -8,6 +8,7 @@ interface AppOptions {
     waitForCreation?: boolean;
     disableProxyEvents?: boolean;
     helpUrl?: string;
+    resizable?: boolean;
 }
 declare class Platform extends EventEmitter {
     proxyEvents: ProxyEvent[];
